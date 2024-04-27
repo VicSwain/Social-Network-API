@@ -39,4 +39,32 @@ module.exports = {
             res.status(500).json(err);
         }
     },
+    // update a thought by id
+    // working
+    async updateThought(req, res) {
+        console.log('Update Thought Route');
+        try {
+            const updatedThought = await Thought.findByIdAndUpdate(req.params.thoughtId, req.body, { new: true });
+            if (!updatedThought){
+                return res.status(404).json({ message: 'No thought found with that ID' });
+            }
+            res.json(updatedThought);
+        } catch (err) {
+            res.status(500).json(err);
+        }
+    },
+    // delete a thought by id
+    // working
+    async deleteThought(req, res) {
+        console.log('Delete Thought Route');
+        try {
+            const deletedThought = await Thought.findByIdAndDelete(req.params.thoughtId);
+            if (!deletedThought) {
+                return res.status(404).json({ message: 'No thought found with that ID'});
+            }
+            res.json({ message: 'User deleted successfully' });
+        } catch (err) {
+            res.status(500).json(err);
+        }
+    }
 };

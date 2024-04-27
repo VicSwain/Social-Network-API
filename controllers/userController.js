@@ -40,4 +40,33 @@ module.exports = {
             res.status(500).json(err);
         }
     },
+    // update a user by id
+    // working
+    async updateUser(req, res) {
+        console.log('Update User Route');
+        try {
+            const updatedUser = await User.findByIdAndUpdate(req.params.userId, req.body, { new: true });
+            if (!updatedUser) {
+                return res.status(404).json({ message: 'No user found with that ID' });
+            }
+            res.json(updatedUser);
+        } catch (err) {
+            res.status(500).json(err);
+        }
+    },
+
+    // DELETE to remove user by its _id
+    // working
+    async deleteUser(req, res) {
+        console.log('Delete User Route');
+        try {
+            const deletedUser = await User.findByIdAndDelete(req.params.userId);
+            if (!deletedUser) {
+                return res.status(404).json({ message: 'No user found with that ID' });
+            }
+            res.json({ message: 'User deleted successfully' });
+        } catch (err) {
+            res.status(500).json(err);
+        }
+    }
 };
