@@ -1,6 +1,6 @@
 const connection = require('../config/connection');
 const { Reaction, Thought, User } = require('../models');
-
+const { users, thoughts, } = require('./data');
 connection.on('error', (err) => err);
 
 connection.once('open', async () => {
@@ -20,8 +20,8 @@ connection.once('open', async () => {
         await connection.dropCollection('reactions');
     }
 
-    const users = [];
-    const thoughts = [];
+    // const users = [];
+    // const thoughts = [];
     // const reactions = [];
 
     await User.collection.insertMany(users);

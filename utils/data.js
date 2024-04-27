@@ -1,7 +1,7 @@
 const users = [
-    {
-        'model': 'user',
-        'documents': [
+    // {
+        // 'model': 'user',
+        // 'documents': [
             {
               "username": "john_doe",
               "email": "john@example.com"
@@ -44,13 +44,13 @@ const users = [
             }
           ]
           
-    }
-];
+    // }
+// ];
 
 const thoughts = [
-    {
-        'model': 'thought',
-        'documents': [
+    // {
+        // 'model': 'thought',
+        // 'documents': [
             { "thoughtText": "I wonder what the future holds." },
             { "thoughtText": "Life is full of surprises." },
             { "thoughtText": "Every problem has a solution." },
@@ -61,7 +61,12 @@ const thoughts = [
             { "thoughtText": "The journey of a thousand miles begins with a single step." },
             { "thoughtText": "Success is not final, failure is not fatal: It is the courage to continue that counts." },
             { "thoughtText": "Happiness depends upon ourselves." }
-          ]
+          ];
            
-    }
-];
+    // }
+// ];
+
+module.exports = {
+    users,
+    thoughts
+};
