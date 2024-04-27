@@ -2,6 +2,7 @@ const User = require('../models/User');
 
 module.exports = {
     // get all users
+    // working
     async getUsers(req, res) {
         console.log("Get All User Route");
         try {
@@ -12,6 +13,7 @@ module.exports = {
         }
     },
     // get single user
+    // working
     async getSingleUser(req, res) {
         console.log('Get Single User Route');
         try {
@@ -29,6 +31,7 @@ module.exports = {
         }
     }, 
     // create a user
+    // works
     async createUser(req, res) {
         try {
             const dbUserData = await User.create(req.body);
