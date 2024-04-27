@@ -2,8 +2,18 @@ const { Schema, model } = require('mongoose');
 
 const userSchema = new Schema(
     {
-        username: { type: String, required: true }, 
-        email: { type: String, required: true }, 
+        username: { 
+            type: String, 
+            required: true, 
+            unique: true, 
+            trim: true 
+        }, 
+        email: { 
+            type: String, 
+            required: true, 
+            unique: true 
+            // this still need validate
+        }, 
         thoughts : [
             {
                 type: Schema.Types.ObjectId,
@@ -21,7 +31,7 @@ const userSchema = new Schema(
 );
 // thinking there is a need for a friend count virtual here
 userSchema
-.virtual('getFriends')
+.virtual('friendCount')
 // Getter
 .get(function () {
     return this.friends.length;

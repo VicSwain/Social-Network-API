@@ -6,16 +6,18 @@ const thoughtSchema = new Schema(
         thoughtText: { 
             type: String, 
             required: true,
-            maxlength: 500,
+            minlength: 1,
+            maxlength: 280,
         }, 
         createdAt: {
             type: Date,
             default: Date.now, 
-        }, 
+            },
         username : [
             {
-                type: Schema.Types.ObjectId,
-                ref: 'user'
+                type: String,
+                ref: 'user',
+                required: true,
             },
         ],
         reactions: [reactionSchema],
@@ -23,13 +25,14 @@ const thoughtSchema = new Schema(
     {
         toJSON: {
             virtuals: true, 
+            getters: true, 
         },
         id: false, 
     }
 );
 
 thoughtSchema
-.virtual('getReactions')
+.virtual('reactionCount')
 // Getter
 .get(function () {
    return this.reactions.length;
