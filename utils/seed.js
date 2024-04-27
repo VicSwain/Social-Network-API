@@ -22,5 +22,15 @@ connection.once('open', async () => {
 
     const users = [];
     const thoughts = [];
-    const reactions = [];
-})
+    // const reactions = [];
+
+    await User.collection.insertMany(users);
+    await Thought.collection.insertMany(thoughts);
+    // await Reaction.collection.insertMany(reactions);
+
+
+    console.table(users);
+    console.table(thoughts);
+    console.info('Seeding complete! 🌱');
+    process.exit(0);
+});
