@@ -65,3 +65,8 @@ const thoughts = [
            
     }
 ];
+
+module.exports = {
+    users,
+    thoughts
+};
