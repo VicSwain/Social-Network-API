@@ -99,7 +99,7 @@ module.exports = {
             console.log(thought);
             console.log('===================================================');
             if (!thought) {
-                return res.status(404).json({ message: 'No thought found with that ID' });
+                return res.status(404).json({ message: 'No reaction found with that ID' });
             }
 
             const reactionId = req.params.reactionId;
