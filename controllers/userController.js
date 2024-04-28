@@ -98,7 +98,7 @@ module.exports = {
     },
 
     // Remove a friend from a user's friend list
-    // says it is successful, still shows friend and friend count 
+    // working
     async deleteFriend(req, res) {
         console.log('Remove Friend Route');
         try {
@@ -112,10 +112,7 @@ module.exports = {
             if (!user.friends.includes(friendId)) {
                 return res.status(400).json({ message: 'User is not a friend' });
             }
-            console.log('friendID=====================================================================================');
-            console.log(friendId);
-            console.log('============================================================================================');
-            user.friends = user.friends.filter(friend => friend !== friendId);
+            user.friends = user.friends.filter(friend => friend.toString() !== friendId);
             await user.save();
 
             res.json({ message: 'Friend removed successfully', user });
