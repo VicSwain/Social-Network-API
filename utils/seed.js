@@ -20,13 +20,11 @@ connection.once('open', async () => {
         await connection.dropCollection('reactions');
     }
 
-    // const users = [];
-    // const thoughts = [];
-    // const reactions = [];
+    
 
     await User.collection.insertMany(users);
     await Thought.collection.insertMany(thoughts);
-    // await Reaction.collection.insertMany(reactions);
+    
 
 
     console.table(users);
