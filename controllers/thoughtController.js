@@ -66,5 +66,44 @@ module.exports = {
         } catch (err) {
             res.status(500).json(err);
         }
+    },
+     // Create a reaction for a single thought
+     async createReaction(req, res) {
+        console.log('Create Reaction Route');
+        try {
+            const { reactionBody, username } = req.body;
+            const newReaction = { reactionBody, username };
+            
+            const thought = await Thought.findById(req.params.thoughtId);
+            if (!thought) {
+                return res.status(404).json({ message: 'No thought found with that ID' });
+            }
+
+            thought.reactions.push(newReaction);
+            await thought.save();
+
+            res.json(thought);
+        } catch (err) {
+            res.status(500).json(err);
+        }
+    },
+
+    // Delete a reaction from a single thought
+    async deleteReaction(req, res) {
+        console.log('Delete Reaction Route');
+        try {
+            const thought = await Thought.findById(req.params.thoughtId);
+            if (!thought) {
+                return res.status(404).json({ message: 'No thought found with that ID' });
+            }
+
+            const reactionId = req.params.reactionId;
+            thought.reactions = thought.reactions.filter(reaction => reaction.reactionId.toString() !== reactionId);
+            await thought.save();
+
+            res.json({ message: 'Reaction removed successfully', thought });
+        } catch (err) {
+            res.status(500).json(err);
+        }
     }
 };
