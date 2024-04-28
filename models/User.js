@@ -29,7 +29,7 @@ const userSchema = new Schema(
         id: false,
     }
 );
-// thinking there is a need for a friend count virtual here
+// vitual for determining friend count
 userSchema
 .virtual('friendCount')
 // Getter

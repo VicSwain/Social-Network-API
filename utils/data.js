@@ -1,7 +1,5 @@
 const users = [
-    // {
-        // 'model': 'user',
-        // 'documents': [
+   
             {
               "username": "john_doe",
               "email": "john@example.com"
@@ -44,13 +42,9 @@ const users = [
             }
           ]
           
-    // }
-// ];
-
+ 
 const thoughts = [
-    // {
-        // 'model': 'thought',
-        // 'documents': [
+  
             { "thoughtText": "I wonder what the future holds." },
             { "thoughtText": "Life is full of surprises." },
             { "thoughtText": "Every problem has a solution." },
@@ -63,8 +57,6 @@ const thoughts = [
             { "thoughtText": "Happiness depends upon ourselves." }
           ];
            
-    // }
-// ];
 
 module.exports = {
     users,

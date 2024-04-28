@@ -1,3 +1,4 @@
+const { log } = require('console');
 const Thought = require('../models/Thought');
 
 module.exports = {
@@ -62,7 +63,7 @@ module.exports = {
             if (!deletedThought) {
                 return res.status(404).json({ message: 'No thought found with that ID'});
             }
-            res.json({ message: 'User deleted successfully' });
+            res.json({ message: 'Thought deleted successfully' });
         } catch (err) {
             res.status(500).json(err);
         }
@@ -75,9 +76,7 @@ module.exports = {
             const newReaction = { reactionBody, username };
             
             const thought = await Thought.findById(req.params.thoughtId);
-            console.log('================================thought');
-            console.log(thought);
-            console.log('========================================');
+           
             if (!thought) {
                 return res.status(404).json({ message: 'No thought found with that ID' });
             }
@@ -95,17 +94,17 @@ module.exports = {
         console.log('Delete Reaction Route');
         try {
             const thought = await Thought.findById(req.params.thoughtId);
-            console.log('======================thought=====================');
-            console.log(thought);
-            console.log('===================================================');
+           
             if (!thought) {
                 return res.status(404).json({ message: 'No reaction found with that ID' });
             }
-
+            console.log('======================thought==================');
+            console.log(thought);
+            console.log('===============================================');
             const reactionId = req.params.reactionId;
-            console.log('=========================reactionId');
-            console.log(reactionId);
-            console.log('===================================');
+           console.log('====================reactionId==================');
+           console.log(reactionId);
+           console.log('=================================================');
             thought.reactions = thought.reactions.filter(reaction => reaction.reactionId.toString() !== reactionId);
             await thought.save();
 
