@@ -98,13 +98,9 @@ module.exports = {
             if (!thought) {
                 return res.status(404).json({ message: 'No reaction found with that ID' });
             }
-            console.log('======================thought==================');
-            console.log(thought);
-            console.log('===============================================');
+           
             const reactionId = req.params.reactionId;
-           console.log('====================reactionId==================');
-           console.log(reactionId);
-           console.log('=================================================');
+         
             thought.reactions = thought.reactions.filter(reaction => reaction.reactionId.toString() !== reactionId);
             await thought.save();
 

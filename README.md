@@ -18,12 +18,12 @@
 
 
   ### Installation
-  npm i
-  npm run seed
+  1. npm i
+  2. npm run seed
 
   ### Usage
-  npm run start
-
+  1. npm run start
+  2. [USAGE](https://drive.google.com/file/d/12fiFqcgJq-TxD0-oYJAJRYE08ZloPyao/view?usp=drive_link)
   ### Screenshots
   ![Result Screenshot](./Assets/18-nosql-homework-demo-01.gif)
   ![Result Screenshot](./Assets/18-nosql-homework-demo-02.gif)
