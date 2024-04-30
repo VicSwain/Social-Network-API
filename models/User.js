@@ -11,8 +11,8 @@ const userSchema = new Schema(
         email: { 
             type: String, 
             required: true, 
-            unique: true 
-            // this still need validate
+            unique: true ,
+            match: /^[\w\.\+\*\?\^\$\/,!#&'-=~]+@\w+\.\w{2,6}$/
         }, 
         thoughts : [
             {
